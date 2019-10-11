@@ -43,5 +43,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: '$(System.TeamProject)-$(Build.BuildNumber)'
+    ArtifactName: '$(System.TeamProject)-$(Build.DefinitionVersion)-$(Build.BuildNumber)'
     publishLocation: 'Container'
