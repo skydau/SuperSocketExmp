@@ -39,8 +39,9 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\\WpfApp1\\bin\\$(BuildConfiguration)\\app.publish'
     Contents: '**\\**'
     TargetFolder: '$(build.artifactstagingdirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.TeamProject)-$(Build.BuildNumber)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: '$(System.TeamProject)-$(Build.BuildNumber)'
     publishLocation: 'Container'
