@@ -36,7 +36,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\\src\\WpfApp1\\bin\\$(BuildConfiguration)\\app.publish'
+    SourceFolder: '$(Build.SourcesDirectory)\\WpfApp1\\bin\\$(BuildConfiguration)\\app.publish'
     Contents: '**\\**'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
