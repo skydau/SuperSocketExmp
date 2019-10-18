@@ -15,19 +15,21 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: PowerShell@2
   inputs:
-    restoreSolution: '$(solution)'
+    targetType: 'inline'
+    
+    script: |
+      # Write your PowerShell commands here.
+      $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\WpfApp1.exe).VersionInfo.ProductVersion
+      Write-Host "##vso[task.setvariable variable=ppversion]$pVersion"
+      Write-Host "productVersion =" $ppversion
+    errorActionPreference: 'continue'
 
-- task: VSBuild@1
+- task: PowerShell@2
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      Write-Host "version=" $env:ppversion
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
