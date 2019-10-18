@@ -49,8 +49,8 @@ steps:
     script: |
       # Write your PowerShell commands here.
       $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\WpfApp1.exe).VersionInfo.ProductVersion
-      Write-Host "##vso[task.setvariable variable=ppversion;]2.0.0"
-      Write-Host "productVersion =" $ppversion
+      Write-Host "##vso[task.setvariable variable=ppversion]2.0.0"
+      Write-Host "productVersion =" $env.ppversion
     errorActionPreference: 'continue'
 
 - task: PowerShell@2
@@ -58,5 +58,5 @@ steps:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
-      Write-Host "version=" $ppversion
+      Write-Host "version=" $env.ppversion
 
