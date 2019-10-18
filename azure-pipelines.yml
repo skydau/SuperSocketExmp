@@ -57,3 +57,11 @@ steps:
       Write-Output ("##vso[task.setvariable variable=productVersion]$pVersion")
       Write-Host "productVersion" = $productVersion
     errorActionPreference: 'continue'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host $productVersion
