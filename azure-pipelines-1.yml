@@ -21,7 +21,7 @@ steps:
     
     script: |
       # Write your PowerShell commands here.
-      $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\WpfApp1.exe).VersionInfo.ProductVersion
+      $pVersion=1.0.0.0
       Write-Host "##vso[task.setvariable variable=ppversion]$pVersion"
       Write-Host "productVersion =" $ppversion
     errorActionPreference: 'continue'
