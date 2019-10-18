@@ -14,6 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   version: '0.1.0.0'
+  pVersion: "0.2.0"
 
 steps:
 - task: NuGetToolInstaller@1
@@ -49,7 +50,6 @@ steps:
     script: |
       # Write your PowerShell commands here.
       $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\WpfApp1.exe).VersionInfo.ProductVersion
-      Write-Output "##vso[task.setvariable variable=$pVersion;]$pVersion"
       Write-Host "productVersion =" $pVersion
     errorActionPreference: 'continue'
 
