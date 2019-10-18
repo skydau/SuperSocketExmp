@@ -30,12 +30,6 @@ steps:
     msbuildArgs: '/target:publish'
 
 
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\\WpfApp1\\bin\\$(BuildConfiguration)\\app.publish'
