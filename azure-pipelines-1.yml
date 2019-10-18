@@ -21,7 +21,7 @@ steps:
     
     script: |
       # Write your PowerShell commands here.
-      $pVersion=1.0.0.0
+      $pVersion = "1.0.0.0"
       Write-Host "##vso[task.setvariable variable=ppversion]$pVersion"
       Write-Host "productVersion =" $ppversion
     errorActionPreference: 'continue'
