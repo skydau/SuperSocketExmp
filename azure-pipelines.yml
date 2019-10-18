@@ -53,7 +53,7 @@ steps:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
-      $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\HelpFileSync.Server.exe).VersionInfo
+      $pVersion=(Get-Item $(Build.SourcesDirectory)\WpfApp1\bin\$(BuildConfiguration)\app.publish\WpfApp1.exe).VersionInfo
       Write-Output ("##vso[task.setvariable variable=productVersion]$pVersion")
       Write-Host "productVersion" = $productVersion
     errorActionPreference: 'continue'
